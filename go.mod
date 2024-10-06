@@ -1,5 +1,5 @@
-module github.com/dobyte/tencent-im
+module github.com/hoshi200/tencent-im
 
-go 1.16
+go 1.22.3
 
-require github.com/dobyte/http v0.0.2
+require github.com/dobyte/http v0.0.5

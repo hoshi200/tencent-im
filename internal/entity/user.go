@@ -13,9 +13,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/dobyte/tencent-im/internal/core"
-	"github.com/dobyte/tencent-im/internal/enum"
-	"github.com/dobyte/tencent-im/internal/types"
+	"github.com/hoshi200/tencent-im/internal/core"
+	"github.com/hoshi200/tencent-im/internal/enum"
+	"github.com/hoshi200/tencent-im/internal/types"
 )
 
 type User struct {

@@ -8,8 +8,8 @@
 package profile
 
 import (
-	"github.com/dobyte/tencent-im/internal/enum"
-	"github.com/dobyte/tencent-im/internal/types"
+	"github.com/hoshi200/tencent-im/internal/enum"
+	"github.com/hoshi200/tencent-im/internal/types"
 )
 
 type (

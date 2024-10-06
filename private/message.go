@@ -9,9 +9,8 @@ package private
 
 import (
 	"errors"
-
-	"github.com/dobyte/tencent-im/internal/entity"
-	"github.com/dobyte/tencent-im/internal/types"
+	"github.com/hoshi200/tencent-im/internal/entity"
+	"github.com/hoshi200/tencent-im/internal/types"
 )
 
 var errNotSetMsgReceiver = errors.New("message receiver is not set")
