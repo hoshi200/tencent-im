@@ -29,6 +29,9 @@ type (
 		VIVOClassification     int    `json:"VIVOClassification,omitempty"`     // （选填）VIVO 手机推送消息分类，“0”代表运营消息，“1”代表系统消息，不填默认为1。
 		HuaWeiImportance       string `json:"HuaWeiImportance,omitempty"`       // （选填）华为推送通知消息分类，取值为 LOW、NORMAL，不填默认为 NORMAL。
 		ExtAsHuaweiIntentParam int    `json:"ExtAsHuaweiIntentParam,omitempty"` // （选填）在控制台配置华为推送为“打开应用内指定页面”的前提下，传“1”表示将透传内容 Ext 作为 Intent 的参数，“0”表示将透传内容 Ext 作为 Action 参数。不填默认为0。两种传参区别可参见 华为推送文档。
+		HuaWeiImage            string `json:"HuaWeiImage,omitempty"`            // （选填）华为推送通知栏消息右侧小图标URL，URL必须使用HTTPS协议，取值样例：https://example.com/image.png。图片文件须小于512KB，规格建议为40dp x 40dp，弧角大小为8dp。超出建议规格的图片会存在图片压缩或图片显示不全的情况。图片格式建议使用JPG/JPEG/PNG。
+		HonorImage             string `json:"HonorImage,omitempty"`             // （选填）荣耀推送通知栏消息右侧小图标 URL，URL 必须使用 HTTPS 协议，取值样例：https://example.com/image.png。 图标文件须小于512KB，图标建议规格大小：40dp x 40dp，弧角大小为8dp，超出建议规格大小的图标会存在图片压缩或显示不全的情况。
+		GoogleImage            string `json:"GoogleImage,omitempty"`            // （选填）Google 推送通知栏消息右侧图标 URL，图片资源不超过1M，支持 JPG/JPEG/PNG 格式，取值样例：https://example.com/image.png。
 	}
 
 	// ApnsInfo IOS离线推送消息

@@ -148,3 +148,15 @@ func (o *offlinePush) SetApnsMutableContent(mutable types.MutableContent) {
 	}
 	o.apnsInfo.MutableContent = int(mutable)
 }
+func (o *offlinePush) SetImage(imageUrl string) {
+	if o.apnsInfo == nil {
+		o.apnsInfo = &types.ApnsInfo{}
+	}
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.apnsInfo.Image = imageUrl
+	o.androidInfo.HuaWeiImage = imageUrl
+	o.androidInfo.GoogleImage = imageUrl
+	o.androidInfo.HonorImage = imageUrl
+}
