@@ -148,6 +148,8 @@ func (o *offlinePush) SetApnsMutableContent(mutable types.MutableContent) {
 	}
 	o.apnsInfo.MutableContent = int(mutable)
 }
+
+// SetImage 设置右侧小图标图片地址
 func (o *offlinePush) SetImage(imageUrl string) {
 	if o.apnsInfo == nil {
 		o.apnsInfo = &types.ApnsInfo{}
