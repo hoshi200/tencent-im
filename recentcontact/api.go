@@ -41,7 +41,7 @@ type API interface {
 	//Top 设置置顶会话
 	//置顶或者取消置顶会话
 	//https://cloud.tencent.com/document/product/269/103772
-	Top(fromUserId string, rOperationType int, recentContactItem []RecentContactItem) (err error)
+	Top(fromUserId string, operationType int, recentContactItem []RecentContactItem) (err error)
 }
 
 type api struct {
