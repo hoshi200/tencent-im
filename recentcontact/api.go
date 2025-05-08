@@ -151,10 +151,10 @@ func (a *api) DeleteSession(fromUserId, toUserId string, SessionType SessionType
 
 	return
 }
-func (a *api) Top(fromUserId string, rOperationType int, recentContactItem []RecentContactItem) (err error) {
+func (a *api) Top(fromUserId string, OperationType int, recentContactItem []RecentContactItem) (err error) {
 	req := &topSessionReq{
 		FromUserId:        fromUserId,
-		OperationType:     rOperationType,
+		OperationType:     OperationType,
 		RecentContactItem: recentContactItem,
 	}
 	if err = a.client.Post(service, top, req, &types.ActionBaseResp{}); err != nil {
