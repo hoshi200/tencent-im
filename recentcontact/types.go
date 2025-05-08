@@ -76,3 +76,15 @@ type deleteSessionReq struct {
 	ToUserId    string      `json:"To_Account"`            // （必填）待删除的会话的 UserID
 	ClearRamble int         `json:"ClearRamble,omitempty"` // （选填）是否清理漫游消息：1 表示清理漫游消息；0 表示不清理漫游消息
 }
+
+// top 设置置顶会话（请求）
+type topSessionReq struct {
+	FromUserId        string              `json:"From_Account"`  //(必填)请求设置该用户的会话
+	OperationType     int                 `json:"OperationType"` //(必填)置顶类型：	1 表示置顶会话	2 表示取消置顶
+	RecentContactItem []RecentContactItem `json:"RecentContactItem"`
+}
+type RecentContactItem struct {
+	Type      SessionType `json:"Type"`       // （必填）会话类型：1 表示 C2C 会话；2 表示 G2C 会话
+	ToAccount string      `json:"To_Account"` // C2C 会话才赋值，C2C 会话的 UserID
+	GroupId   string      `json:"GroupId"`    //G2C 会话才赋值，G2C 会话的群 ID
+}

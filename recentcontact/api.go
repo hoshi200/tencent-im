@@ -16,6 +16,7 @@ const (
 	service              = "recentcontact"
 	commandFetchSessions = "get_list"
 	commandDeleteSession = "delete"
+	top                  = "top"
 )
 
 type API interface {
@@ -37,6 +38,10 @@ type API interface {
 	// 点击查看详细文档:
 	// https://cloud.tencent.com/document/product/269/62119
 	DeleteSession(fromUserId, toUserId string, SessionType SessionType, isClearRamble ...bool) (err error)
+	//Top 设置置顶会话
+	//置顶或者取消置顶会话
+	//https://cloud.tencent.com/document/product/269/103772
+	Top(fromUserId string, rOperationType int, recentContactItem []RecentContactItem) (err error)
 }
 
 type api struct {
@@ -144,5 +149,16 @@ func (a *api) DeleteSession(fromUserId, toUserId string, SessionType SessionType
 		return
 	}
 
+	return
+}
+func (a *api) Top(fromUserId string, rOperationType int, recentContactItem []RecentContactItem) (err error) {
+	req := &topSessionReq{
+		FromUserId:        fromUserId,
+		OperationType:     rOperationType,
+		RecentContactItem: recentContactItem,
+	}
+	if err = a.client.Post(service, top, req, &types.ActionBaseResp{}); err != nil {
+		return
+	}
 	return
 }
