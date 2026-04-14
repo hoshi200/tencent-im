@@ -21,17 +21,29 @@ type (
 
 	// AndroidInfo Android离线推送消息
 	AndroidInfo struct {
-		Sound                  string `json:"Sound,omitempty"`                  // （选填）Android 离线推送声音文件路径。
-		HuaWeiChannelID        string `json:"HuaWeiChannelID,omitempty"`        // （选填）华为手机 EMUI 10.0 及以上的通知渠道字段。该字段不为空时，会覆盖控制台配置的 ChannelID 值；该字段为空时，不会覆盖控制台配置的 ChannelID 值。
-		XiaoMiChannelID        string `json:"XiaoMiChannelID,omitempty"`        // （选填）小米手机 MIUI 10 及以上的通知类别（Channel）适配字段。该字段不为空时，会覆盖控制台配置的 ChannelID 值；该字段为空时，不会覆盖控制台配置的 ChannelID 值。
-		OPPOChannelID          string `json:"OPPOChannelID,omitempty"`          // （选填）OPPO 手机 Android 8.0 及以上的 NotificationChannel 通知适配字段。该字段不为空时，会覆盖控制台配置的 ChannelID 值；该字段为空时，不会覆盖控制台配置的 ChannelID 值。
-		GoogleChannelID        string `json:"GoogleChannelID,omitempty"`        // （选填）Google 手机 Android 8.0 及以上的通知渠道字段。Google 推送新接口（上传证书文件）支持 channel id，旧接口（填写服务器密钥）不支持。
-		VIVOClassification     int    `json:"VIVOClassification,omitempty"`     // （选填）VIVO 手机推送消息分类，“0”代表运营消息，“1”代表系统消息，不填默认为1。
-		HuaWeiImportance       string `json:"HuaWeiImportance,omitempty"`       // （选填）华为推送通知消息分类，取值为 LOW、NORMAL，不填默认为 NORMAL。
-		ExtAsHuaweiIntentParam int    `json:"ExtAsHuaweiIntentParam,omitempty"` // （选填）在控制台配置华为推送为“打开应用内指定页面”的前提下，传“1”表示将透传内容 Ext 作为 Intent 的参数，“0”表示将透传内容 Ext 作为 Action 参数。不填默认为0。两种传参区别可参见 华为推送文档。
-		HuaWeiImage            string `json:"HuaWeiImage,omitempty"`            // （选填）华为推送通知栏消息右侧小图标URL，URL必须使用HTTPS协议，取值样例：https://example.com/image.png。图片文件须小于512KB，规格建议为40dp x 40dp，弧角大小为8dp。超出建议规格的图片会存在图片压缩或图片显示不全的情况。图片格式建议使用JPG/JPEG/PNG。
-		HonorImage             string `json:"HonorImage,omitempty"`             // （选填）荣耀推送通知栏消息右侧小图标 URL，URL 必须使用 HTTPS 协议，取值样例：https://example.com/image.png。 图标文件须小于512KB，图标建议规格大小：40dp x 40dp，弧角大小为8dp，超出建议规格大小的图标会存在图片压缩或显示不全的情况。
-		GoogleImage            string `json:"GoogleImage,omitempty"`            // （选填）Google 推送通知栏消息右侧图标 URL，图片资源不超过1M，支持 JPG/JPEG/PNG 格式，取值样例：https://example.com/image.png。
+		Sound                        string            `json:"Sound,omitempty"`                        // （选填）Android 离线推送声音文件路径。
+		PushStyle                    int               `json:"PushStyle,omitempty"`                    // （选填）Android通知栏样式，0代表默认样式，1代表长文本样式，不填默认为0。仅对华为/荣耀/OPPO生效。
+		HuaWeiChannelID              string            `json:"HuaWeiChannelID,omitempty"`              // （选填）华为手机 EMUI 10.0 及以上的通知渠道字段。该字段不为空时，会覆盖控制台配置的 ChannelID 值；该字段为空时，不会覆盖控制台配置的 ChannelID 值。
+		HuaWeiCategory               string            `json:"HuaWeiCategory,omitempty"`               // （选填）华为推送消息分类，用于标识消息类型。该字段不为空时，会覆盖控制台推送证书配置的 category 值。
+		HuaWeiImportance             string            `json:"HuaWeiImportance,omitempty"`             // （选填）华为推送通知消息分类，取值为 LOW、NORMAL，不填默认为 NORMAL。
+		HuaWeiImage                  string            `json:"HuaWeiImage,omitempty"`                  // （选填）华为推送通知栏消息右侧小图标URL，URL必须使用HTTPS协议。图片文件须小于512KB，规格建议为40dp x 40dp，弧角大小为8dp。图片格式建议使用JPG/JPEG/PNG。
+		ExtAsHuaweiIntentParam       int               `json:"ExtAsHuaweiIntentParam,omitempty"`       // （选填）在控制台配置华为推送为"打开应用内指定页面"的前提下，传"1"表示将透传内容 Ext 作为 Intent 的参数，"0"表示将透传内容 Ext 作为 Action 参数。不填默认为0。
+		XiaoMiChannelID              string            `json:"XiaoMiChannelID,omitempty"`              // （选填）小米手机 MIUI 10 及以上的通知类别（Channel）适配字段。该字段不为空时，会覆盖控制台配置的 ChannelID 值；该字段为空时，不会覆盖控制台配置的 ChannelID 值。
+		OPPOChannelID                string            `json:"OPPOChannelID,omitempty"`                // （选填）OPPO 手机 Android 8.0 及以上的 NotificationChannel 通知适配字段。该字段不为空时，会覆盖控制台配置的 ChannelID 值；该字段为空时，不会覆盖控制台配置的 ChannelID 值。
+		OPPOCategory                 string            `json:"OPPOCategory,omitempty"`                 // （选填）OPPO 推送消息分类，用于标识消息类型。该字段不为空时，会覆盖控制台推送证书配置的 category 值。
+		OPPOPrivateMsgTemplateId     string            `json:"OPPOPrivateMsgTemplateId,omitempty"`     // （选填）OPPO 推送私信模板 ID，下发对应私信模板时必须携带。如果 OPPOCategory 设置分类为内容与营销，则此字段无效。
+		OPPOPrivateTitleParameters   map[string]string `json:"OPPOPrivateTitleParameters,omitempty"`   // （选填）OPPO 推送标题模板填充参数。例：私信模板标题为"欢迎来到${city}"，此参数内容为：{"city":"北京"}。
+		OPPOPrivateContentParameters map[string]string `json:"OPPOPrivateContentParameters,omitempty"` // （选填）OPPO 推送内容模板填充参数。例：私信模板内容为"欢迎${userName}来到${city}"，此参数内容为：{"userName":"汤姆","city":"深圳市"}。
+		OPPONotifyLevel              int               `json:"OPPONotifyLevel,omitempty"`              // （选填）OPPO 推送通知栏消息提醒等级。1：通知栏；2：通知栏+锁屏；16：通知栏+锁屏+横幅+震动+铃声。使用 OPPONotifyLevel 时，OPPOCategory 必传。
+		VIVOClassification           int               `json:"VIVOClassification,omitempty"`           // （选填）VIVO 手机推送消息分类，"0"代表运营消息，"1"代表系统消息，不填默认为1。
+		VIVOCategory                 string            `json:"VIVOCategory,omitempty"`                 // （选填）vivo 推送消息分类，用于标识消息类型。该字段不为空时，会覆盖控制台推送证书配置的 category 值。
+		VIVONotifyType               int               `json:"VIVONotifyType,omitempty"`               // （选填）vivo 通知类型。1：无；2：响铃；3：振动；4：响铃和振动。默认取值4。
+		HonorImportance              string            `json:"HonorImportance,omitempty"`              // （选填）荣耀推送消息分类，取值为 LOW、NORMAL，不填默认为 NORMAL。详细请参见：荣耀消息分类。
+		HonorImage                   string            `json:"HonorImage,omitempty"`                   // （选填）荣耀推送通知栏消息右侧小图标 URL，URL 必须使用 HTTPS 协议。图标文件须小于512KB，图标建议规格大小：40dp x 40dp，弧角大小为8dp。
+		GoogleChannelID              string            `json:"GoogleChannelID,omitempty"`              // （选填）Google 手机 Android 8.0 及以上的通知渠道字段。Google 推送新接口（上传证书文件）支持 channel id，旧接口（填写服务器密钥）不支持。
+		GoogleImage                  string            `json:"GoogleImage,omitempty"`                  // （选填）Google 推送通知栏消息右侧图标 URL，图片资源不超过1M，支持 JPG/JPEG/PNG 格式。
+		GooglePriority               string            `json:"GooglePriority,omitempty"`               // （选填）Google 推送通知栏消息优先级。normal：设备后台/Doze模式延迟批量投递；high：任意状态强制投递。
+		MeiZuNoticeMsgType           int               `json:"MeiZuNoticeMsgType,omitempty"`           // （选填）魅族推送消息分类，0代表公信消息，1代表私信消息。该字段不为空时，会覆盖控制台魅族推送证书配置的消息分类。
 	}
 
 	// ApnsInfo IOS离线推送消息
@@ -160,11 +172,29 @@ type (
 	// HuaWeiImportance 华为推送通知消息分类
 	HuaWeiImportance string
 
-	// HuaweiIntentParam 华为推送为“打开应用内指定页面”的前提下透传参数行为
+	// HonorImportance 荣耀推送消息分类
+	HonorImportance string
+
+	// HuaweiIntentParam 华为推送为"打开应用内指定页面"的前提下透传参数行为
 	HuaweiIntentParam int
 
 	// VivoClassification VIVO手机推送消息分类
 	VivoClassification int
+
+	// AndroidPushStyle Android通知栏样式
+	AndroidPushStyle int
+
+	// OPPONotifyLevel OPPO推送通知栏消息提醒等级
+	OPPONotifyLevel int
+
+	// VIVONotifyType vivo通知类型
+	VIVONotifyType int
+
+	// GooglePriority Google推送通知栏消息优先级
+	GooglePriority string
+
+	// MeiZuNoticeMsgType 魅族推送消息分类
+	MeiZuNoticeMsgType int
 
 	// BadgeMode IOS徽章计数模式
 	BadgeMode int

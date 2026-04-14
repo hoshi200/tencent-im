@@ -101,12 +101,108 @@ func (o *offlinePush) SetAndroidHuaWeiImportance(importance types.HuaWeiImportan
 	o.androidInfo.HuaWeiImportance = string(importance)
 }
 
+// SetAndroidHonorImportance 设置荣耀推送消息分类
+func (o *offlinePush) SetAndroidHonorImportance(importance types.HonorImportance) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.HonorImportance = string(importance)
+}
+
 // SetAndroidExtAsHuaweiIntentParam 设置在控制台配置华为推送为“打开应用内指定页面”的前提下，传“1”表示将透传内容 Ext 作为 Intent 的参数，“0”表示将透传内容 Ext 作为 Action 参数。不填默认为0。
 func (o *offlinePush) SetAndroidExtAsHuaweiIntentParam(param types.HuaweiIntentParam) {
 	if o.androidInfo == nil {
 		o.androidInfo = &types.AndroidInfo{}
 	}
 	o.androidInfo.ExtAsHuaweiIntentParam = int(param)
+}
+
+// SetAndroidPushStyle 设置Android通知栏样式，0代表默认样式，1代表长文本样式
+func (o *offlinePush) SetAndroidPushStyle(style types.AndroidPushStyle) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.PushStyle = int(style)
+}
+
+// SetAndroidHuaWeiCategory 设置华为推送消息分类
+func (o *offlinePush) SetAndroidHuaWeiCategory(category string) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.HuaWeiCategory = category
+}
+
+// SetAndroidOppoCategory 设置OPPO推送消息分类
+func (o *offlinePush) SetAndroidOppoCategory(category string) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.OPPOCategory = category
+}
+
+// SetAndroidOppoPrivateMsgTemplateId 设置OPPO推送私信模板ID
+func (o *offlinePush) SetAndroidOppoPrivateMsgTemplateId(templateId string) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.OPPOPrivateMsgTemplateId = templateId
+}
+
+// SetAndroidOppoPrivateTitleParameters 设置OPPO推送标题模板填充参数
+func (o *offlinePush) SetAndroidOppoPrivateTitleParameters(params map[string]string) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.OPPOPrivateTitleParameters = params
+}
+
+// SetAndroidOppoPrivateContentParameters 设置OPPO推送内容模板填充参数
+func (o *offlinePush) SetAndroidOppoPrivateContentParameters(params map[string]string) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.OPPOPrivateContentParameters = params
+}
+
+// SetAndroidOppoNotifyLevel 设置OPPO推送通知栏消息提醒等级
+func (o *offlinePush) SetAndroidOppoNotifyLevel(level types.OPPONotifyLevel) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.OPPONotifyLevel = int(level)
+}
+
+// SetAndroidVivoCategory 设置vivo推送消息分类
+func (o *offlinePush) SetAndroidVivoCategory(category string) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.VIVOCategory = category
+}
+
+// SetAndroidVivoNotifyType 设置vivo通知类型
+func (o *offlinePush) SetAndroidVivoNotifyType(notifyType types.VIVONotifyType) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.VIVONotifyType = int(notifyType)
+}
+
+// SetAndroidGooglePriority 设置Google推送通知栏消息优先级
+func (o *offlinePush) SetAndroidGooglePriority(priority types.GooglePriority) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.GooglePriority = string(priority)
+}
+
+// SetAndroidMeiZuNoticeMsgType 设置魅族推送消息分类
+func (o *offlinePush) SetAndroidMeiZuNoticeMsgType(msgType types.MeiZuNoticeMsgType) {
+	if o.androidInfo == nil {
+		o.androidInfo = &types.AndroidInfo{}
+	}
+	o.androidInfo.MeiZuNoticeMsgType = int(msgType)
 }
 
 // SetApnsBadgeMode 设置IOS徽章计数模式

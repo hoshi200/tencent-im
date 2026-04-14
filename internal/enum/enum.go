@@ -77,6 +77,10 @@ const (
 	HuaWeiImportanceLow    types.HuaWeiImportance = "LOW"    // LOW类消息
 	HuaWeiImportanceNormal types.HuaWeiImportance = "NORMAL" // NORMAL类消息
 
+	// 荣耀推送消息分类
+	HonorImportanceLow    types.HonorImportance = "LOW"    // LOW类消息
+	HonorImportanceNormal types.HonorImportance = "NORMAL" // NORMAL类消息
+
 	// 华为推送为“打开应用内指定页面”的前提下透传参数行为
 	HuaweiIntentParamAction types.HuaweiIntentParam = 0 // 将透传内容Ext作为Action参数
 	HuaweiIntentParamIntent types.HuaweiIntentParam = 1 // 将透传内容Ext作为Intent参数
@@ -92,4 +96,27 @@ const (
 	// iOS10的推送扩展开关
 	MutableContentNormal types.MutableContent = 0 // 关闭iOS10的推送扩展
 	MutableContentEnable types.MutableContent = 1 // 开启iOS10的推送扩展
+
+	// Android通知栏样式
+	PushStyleDefault  types.AndroidPushStyle = 0 // 默认样式
+	PushStyleLongText types.AndroidPushStyle = 1 // 长文本样式，仅对华为/荣耀/OPPO生效
+
+	// OPPO推送通知栏消息提醒等级
+	OPPONotifyLevelNotification           types.OPPONotifyLevel = 1  // 通知栏
+	OPPONotifyLevelNotificationLockScreen types.OPPONotifyLevel = 2  // 通知栏+锁屏
+	OPPONotifyLevelAll                    types.OPPONotifyLevel = 16 // 通知栏+锁屏+横幅+震动+铃声
+
+	// vivo通知类型
+	VIVONotifyTypeNone           types.VIVONotifyType = 1 // 无
+	VIVONotifyTypeRing           types.VIVONotifyType = 2 // 响铃
+	VIVONotifyTypeVibrate        types.VIVONotifyType = 3 // 振动
+	VIVONotifyTypeRingAndVibrate types.VIVONotifyType = 4 // 响铃和振动
+
+	// Google推送通知栏消息优先级
+	GooglePriorityNormal types.GooglePriority = "normal" // 设备后台/Doze模式延迟批量投递
+	GooglePriorityHigh   types.GooglePriority = "high"   // 任意状态强制投递
+
+	// 魅族推送消息分类
+	MeiZuNoticeMsgTypePublic  types.MeiZuNoticeMsgType = 0 // 公信消息
+	MeiZuNoticeMsgTypePrivate types.MeiZuNoticeMsgType = 1 // 私信消息
 )

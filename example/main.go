@@ -12,6 +12,7 @@ import (
 	"log"
 	"net/http"
 
+	im "github.com/hoshi200/tencent-im"
 	"github.com/hoshi200/tencent-im/account"
 	"github.com/hoshi200/tencent-im/callback"
 )
